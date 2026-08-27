@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* Design tokens — sourced from design_1.md ("Chartreuse & Charcoal" system)
+   and the live Figma node (node-id 27:919). Where the two disagreed, the
+   live Figma node won (e.g. this frame's canvas is #FAFAF7, not #EAEF7A). */
+@theme {
+  --color-canvas: #fafaf7;
+  --color-ink: #000000;
+  --color-ink-muted: #6e6e6a;
+  --color-charcoal: #1c1c1e;
+  --color-chartreuse: #eaef7a;
+  --color-chartreuse-hover: #dfe46c;
+  --color-on-chartreuse: #0f0f0c;
+  --color-placeholder: #d9d9d9;
+
+  --color-chip-lh-bg: #eadeff;
+  --color-chip-lh-text: #7e3cfa;
+  --color-chip-aplo-bg: #e1e1e1;
+  --color-chip-aplo-text: #1c1c1e;
+  --color-chip-freelance-bg: #f8e3c9;
+  --color-chip-freelance-text: #e5850f;
+
+  /* Case-study template (node 32:142) uses its own near-identical but
+     distinct near-black/gray pair rather than --color-ink/--color-ink-muted
+     — kept separate so this page matches its source node exactly. */
+  --color-case-ink: #1a1a18;
+  --color-case-muted: #70706b;
+  --color-case-border: #e6e6e3;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Offsets scroll targets by the sticky nav's height so anchor jumps (and
+   the smooth-scroll from clicking a nav item) don't land underneath it. */
+[id] {
+  scroll-margin-top: 72px;
+}
+
+@media (min-width: 1024px) {
+  [id] {
+    scroll-margin-top: 96px;
+  }
+}
