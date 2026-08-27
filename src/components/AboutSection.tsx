@@ -1,4 +1,4 @@
-import aboutImg from "../assets/photo-placeholder.jpg";
+import aboutImg from "../assets/photo-jack.jpg";
 import iconDownload from "../assets/icon-download.svg";
 import PillButton from "./PillButton";
 
@@ -62,9 +62,12 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* TODO: swap for a real photo of you */}
         <div className="h-[260px] w-full shrink-0 lg:h-[389px] lg:w-[600px]">
-          <img src={aboutImg} alt="" className="h-full w-full rounded-2xl object-cover" />
+          <img
+            src={aboutImg}
+            alt="Jack Stewart"
+            className="h-full w-full rounded-2xl object-cover"
+          />
         </div>
       </div>
     </section>
