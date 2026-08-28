@@ -43,7 +43,8 @@ export default function AboutSection() {
               <p className="w-full font-body text-base leading-6 text-ink">
                 I combine human-centred fundamentals with modern AI tooling to advocate for the users
                 while driving measurable business impact.
-                <br />
+              </p>
+              <p className="w-full font-body text-base leading-6 text-ink">
                 Some of the projects I am most proud of, is my usability testing work with the
                 education department, and setting up design standards and systems at Lendhub.
               </p>
