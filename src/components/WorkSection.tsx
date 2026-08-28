@@ -20,8 +20,12 @@ export default function WorkSection() {
         // The project image (or its placeholder) doubles as a link to the case
         // study, with a 20% tint fading in on hover. Coming-soon entries keep
         // the same box but aren't clickable and get no hover tint.
+        //
+        // In two-column mode the media shares the row equally with the text
+        // column (both flex-1, filling the container) until 1080px, above which
+        // it snaps to its fixed 600px width and the text column takes the rest.
         const mediaClasses =
-          "group relative block h-[240px] w-full shrink-0 overflow-hidden rounded-2xl lg:h-[400px] lg:w-[600px]";
+          "group relative block h-[240px] w-full shrink-0 overflow-hidden rounded-2xl lg:h-[400px] lg:max-wide:flex-1 wide:w-[600px]";
         const media = (
           <>
             {project.image ? (
