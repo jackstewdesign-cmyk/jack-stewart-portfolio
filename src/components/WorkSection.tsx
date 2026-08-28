@@ -21,11 +21,12 @@ export default function WorkSection() {
         // study, with a 20% tint fading in on hover. Coming-soon entries keep
         // the same box but aren't clickable and get no hover tint.
         //
-        // In two-column mode the media shares the row equally with the text
-        // column (both flex-1, filling the container) until 1080px, above which
-        // it snaps to its fixed 600px width and the text column takes the rest.
+        // Row layout kicks in at `row` (693px). Between there and `wide`
+        // (1241px) the media shares the row equally with the text column (both
+        // flex-1, filling the container); at or above `wide` it snaps to its
+        // fixed 600px width and the text column takes the rest.
         const mediaClasses =
-          "group relative block h-[240px] w-full shrink-0 overflow-hidden rounded-2xl lg:h-[400px] lg:max-wide:flex-1 wide:w-[600px]";
+          "group relative block h-[240px] w-full shrink-0 overflow-hidden rounded-2xl row:h-[400px] row:max-wide:flex-1 wide:w-[600px]";
         const media = (
           <>
             {project.image ? (
@@ -46,8 +47,8 @@ export default function WorkSection() {
         return (
           <div
             key={project.id}
-            className={`flex w-full flex-col gap-10 px-5 py-10 lg:items-center lg:px-30 lg:py-[60px] ${
-              i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+            className={`flex w-full flex-col gap-10 px-5 py-10 row:items-center lg:px-30 lg:py-[60px] ${
+              i % 2 === 1 ? "row:flex-row-reverse" : "row:flex-row"
             }`}
           >
             <div className="flex flex-1 flex-col items-start gap-6">

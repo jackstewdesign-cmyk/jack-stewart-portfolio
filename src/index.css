@@ -31,9 +31,12 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
 
-  /* Extra breakpoint used by the Work section: below this the two project
-     columns share the row equally; at or above it the media snaps to 600px. */
-  --breakpoint-wide: 1080px;
+  /* Extra breakpoints used by the Work section's project rows:
+     - below `row` the row stacks (text over media)
+     - between `row` and `wide` the two columns share the row equally
+     - at or above `wide` the media snaps to its fixed 600px width */
+  --breakpoint-row: 693px;
+  --breakpoint-wide: 1241px;
 }
 
 html {
