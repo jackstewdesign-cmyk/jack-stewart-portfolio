@@ -43,6 +43,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Every content image carries a consistent 16px corner radius. Inline icon
+   <img>s are always aria-hidden and opt out. In @layer base so a `rounded-*`
+   utility can still override on a case-by-case basis. */
+@layer base {
+  img:not([aria-hidden="true"]) {
+    border-radius: 16px;
+  }
+}
+
 body {
   background: var(--color-canvas);
   color: var(--color-ink);

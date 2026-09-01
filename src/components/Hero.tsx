@@ -5,7 +5,7 @@ import PillButton from "./PillButton";
 
 export default function Hero() {
   return (
-    <section className="relative flex w-full min-h-[100svh] flex-col justify-center gap-10 px-5 py-16 lg:min-h-[calc(100svh-88px)] lg:justify-center lg:gap-20 lg:px-30 lg:py-0">
+    <section className="relative flex w-full min-h-[100svh] flex-col justify-center px-5 py-16 lg:min-h-[calc(100svh-88px)] lg:justify-center lg:px-30 lg:py-0">
       <div className="flex flex-col gap-10 lg:gap-20">
         <h1 className="font-display text-[32px] font-bold leading-[1.1] text-ink lg:text-[40px]">
           Hi, I’m jack, a hands-on UX designer and strategist who ensures people are at the core of tech
@@ -42,9 +42,11 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* In normal flow on mobile (24px below the CTA buttons); pinned to the
+          bottom-centre of the hero from `lg` up. */}
       <a
         href="#work"
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3 opacity-80 transition-opacity hover:opacity-100"
+        className="mt-6 flex flex-col items-center gap-3 self-center opacity-80 transition-opacity hover:opacity-100 lg:absolute lg:bottom-8 lg:left-1/2 lg:mt-0 lg:-translate-x-1/2"
       >
         <span className="font-body text-base leading-6 text-[#2c2c2e]">See my work</span>
         <img src={iconChevron} alt="" className="h-[37.5px] w-[75px]" aria-hidden="true" />

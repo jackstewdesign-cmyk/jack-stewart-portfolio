@@ -87,7 +87,6 @@ export default function CaseStudyPage() {
   }
 
   const cs = project.caseStudy;
-  const nextProject = projects[(index + 1) % projects.length];
 
   return (
     <article className="w-full">
@@ -225,7 +224,7 @@ export default function CaseStudyPage() {
                   src={item.imageSrc}
                   alt={item.imageCaption}
                   caption={item.imageCaption}
-                  className="h-[260px] lg:h-[400px]"
+                  className={item.imageSrc ? "aspect-[10/7] w-full" : "h-[260px] lg:h-[400px]"}
                 />
               </div>
             </div>
@@ -270,14 +269,14 @@ export default function CaseStudyPage() {
           <p className="font-body text-sm text-case-muted">
             © {new Date().getFullYear()} Jack Stewart. Built for portfolio context.
           </p>
-          <Link to={`/work/${nextProject.id}`} className="flex items-center gap-2 group">
-            <span className="font-display text-lg font-bold text-case-ink">Next project</span>
+          <Link to="/" className="flex items-center gap-2 group">
             <img
               src={iconArrowRight}
               alt=""
-              className="h-5 w-5 transition-transform group-hover:translate-x-1"
+              className="h-5 w-5 rotate-180 transition-transform group-hover:-translate-x-1"
               aria-hidden="true"
             />
+            <span className="font-display text-lg font-bold text-case-ink">Back to home</span>
           </Link>
         </div>
       </section>
