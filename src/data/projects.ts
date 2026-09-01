@@ -1,7 +1,8 @@
 import educationComingSoon from "../assets/aplo/education-coming-soon.png";
 import dsComponents from "../assets/lendhub-ai/components.png";
+import dsCover from "../assets/lendhub-ai/cover.png";
 import dsDesignMd from "../assets/lendhub-ai/designmd.png";
-import dsProcessOverview from "../assets/lendhub-ai/how-i-approached-it.png";
+import dsProcessOverview from "../assets/lendhub-ai/process-overview.png";
 import dsOutcome from "../assets/lendhub-ai/outcome.png";
 import dsVariables from "../assets/lendhub-ai/variables.png";
 import heroImage from "../assets/lendhub/hero-image.png";
@@ -246,7 +247,7 @@ const lendhubDesignSystemCaseStudy: CaseStudy = {
   timeline: "1 Month (2026)",
   myRole: "UX/UI manager",
   tags: ["Design systems", "AI strategy"],
-  heroImageSrc: heroImage,
+  heroImageSrc: dsCover,
   heroImageCaption: "Lendhub brand mark",
   problemIntro:
     "Lendhub had no formal design system when I joined. That meant rework on every wireframe and drift between products as they were built as well as poor developer handover. A large part of my role involved rapid prototype iteration but without a system, each one diverged a little further from the last, and usability suffered as a result. A large part of the engineer's role within Lendhub was to create web-apps for internal use as well as create test projects to explore ideas. The products were not only difficult to use, but as more and more was built, the drift between the early designs and later designs became large.",
@@ -335,7 +336,7 @@ export const projects: Project[] = [
     chipCompany: "LH",
     description:
       "Creating, maintaining and then translating it into a DESIGN.md file to enable engineers and reduce re-work.",
-    image: heroImage,
+    image: dsCover,
     caseStudy: lendhubDesignSystemCaseStudy,
   },
   {

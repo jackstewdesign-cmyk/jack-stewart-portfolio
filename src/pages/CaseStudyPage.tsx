@@ -30,13 +30,23 @@ function CaseImage({
   alt,
   caption,
   className = "",
+  fit = "cover",
 }: {
   src?: string;
   alt: string;
   caption: string;
   className?: string;
+  /**
+   * "cover" crops the image to fill a sized box (needs a height/aspect on `className`).
+   * "natural" renders the image at its own aspect ratio, scaling fluidly with the
+   * column width so the file is shown uncropped.
+   */
+  fit?: "cover" | "natural";
 }) {
   if (!src) return <ImagePlaceholder caption={caption} className={className} />;
+  if (fit === "natural") {
+    return <img src={src} alt={alt} className={`w-full rounded-2xl ${className}`} />;
+  }
   return (
     <div className={`overflow-hidden rounded-2xl ${className}`}>
       <img src={src} alt={alt} className="h-full w-full object-cover" />
@@ -191,7 +201,8 @@ export default function CaseStudyPage() {
             src={cs.processImageSrc}
             alt={cs.processImageCaption}
             caption={cs.processImageCaption}
-            className={cs.processImageSrc ? "aspect-[4096/2257] w-full" : "h-[260px] lg:h-[400px]"}
+            fit="natural"
+            className={cs.processImageSrc ? "" : "h-[260px] lg:h-[400px]"}
           />
           {/* With a real image the same copy runs as a caption paragraph beneath it instead of inside the placeholder box */}
           {cs.processImageSrc && (
