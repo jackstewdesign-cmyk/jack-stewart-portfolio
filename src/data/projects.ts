@@ -1,4 +1,9 @@
-import educationComingSoon from "../assets/aplo/education-coming-soon.png";
+import eduCover from "../assets/aplo/EDU cover.png";
+import eduOutcomes from "../assets/aplo/Outcomes.png";
+import eduProcessOverview from "../assets/aplo/process overview.png";
+import eduServiceMap from "../assets/aplo/Process 3.png";
+import eduSketch from "../assets/aplo/process 1.png";
+import eduStudentDashboard from "../assets/aplo/Process 2.png";
 import dsComponents from "../assets/lendhub-ai/components.png";
 import dsCover from "../assets/lendhub-ai/cover.png";
 import dsDesignMd from "../assets/lendhub-ai/designmd.png";
@@ -93,76 +98,10 @@ export interface Project {
 // design_1.md §9.3): LH = purple, Aplo = charcoal, Freelance = orange.
 //
 // `caseStudy` feeds the /work/:id template page (Figma node 32:142 / 46:1182).
-// `lendhub-property-loans` (Figma node 46:1320) and `lendhub-1` (Figma node
-// 74:2149) are fully written real case studies with real screenshots — use
-// them as the reference for how to fill the others in. `aplo-education-research`
-// still shares the sample "MetroFlow Systems" copy below and has its View
-// button disabled (`comingSoon: true`) so the sample page isn't linked.
-const sampleCaseStudy: CaseStudy = {
-  client: "MetroFlow Systems",
-  timeline: "6 Months (2025)",
-  myRole: "Lead UX Researcher & Designer",
-  tags: ["UX strategy", "UI design"],
-  heroImageCaption: "Case study hero preview — Web dashboard mockups",
-  problemIntro:
-    "Dispatchers must monitor over 15 concurrent data streams to make split-second routing decisions. The system failed to prioritize critical events, forcing operators to manually scan hundreds of rows of raw vehicle telematics to locate anomalies.",
-  howMightWe:
-    "“How might we surface critical transit anomalies proactively so dispatchers can respond instantly, without losing global visibility over the fleet?”",
-  painPoints: [
-    {
-      title: "Alert Blindness",
-      body: "Over 120 critical alert rings occurred per hour, with no visual hierarchy to differentiate a flat tire from an engine failure.",
-    },
-    {
-      title: "Disjointed Workflows",
-      body: "Dispatchers had to copy telemetry IDs across three separate browser tabs to complete a single vehicle rerouting loop.",
-    },
-  ],
-  processSteps: [
-    {
-      title: "Field Research & Audits",
-      body: "Co-piloted three full night shifts alongside telemetry dispatchers, mapping their cognitive workflow and noting exactly when alert fatigue set in.",
-    },
-    {
-      title: "Interactive Wireframes",
-      body: "Synthesized findings into rapid interactive prototypes, testing a tiered notifications dashboard concept with varying levels of information density.",
-    },
-    {
-      title: "Usability Validation",
-      body: "Iterated through live scenario testing with real dispatcher operators, timing task completion speeds and observing eye-tracking pathways.",
-    },
-  ],
-  processImageCaption: "User flow and primary wireframe architecture iterations",
-  processShowcase: [
-    {
-      title: "Field Research & Audits",
-      body: "Co-piloted three full night shifts alongside telemetry dispatchers, mapping their cognitive workflow and noting exactly when alert fatigue set in.",
-      imageCaption: "Field notes and shadowing observations from the three overnight dispatcher shifts",
-    },
-    {
-      title: "Interactive Wireframes",
-      body: "Synthesized findings into rapid interactive prototypes, testing a tiered notifications dashboard concept with varying levels of information density.",
-      imageCaption: "Early interactive wireframes exploring a tiered notification hierarchy",
-    },
-    {
-      title: "Usability Validation",
-      body: "Iterated through live scenario testing with real dispatcher operators, timing task completion speeds and observing eye-tracking pathways.",
-      imageCaption: "Usability test recordings and think-aloud session annotations",
-    },
-  ],
-  processClosing:
-    "Throughout the design cycles, we prioritized progressive disclosure. Telemetry detail screens were re-architected into modular canvas components that dispatchers could expand or fold away depending on their immediate workflow priority.",
-  outcomeImageCaption: "High-fidelity web dashboards showcasing final responsive interface solutions",
-  metrics: [
-    { value: "-42%", label: "Task completion time" },
-    { value: "94%", label: "Operator satisfaction score" },
-    { value: "2 Days", label: "Average dispatcher onboarding" },
-  ],
-  outcomeClosing:
-    "By structuring the system around proactive anomaly detection rather than manual telemetry analysis, dispatchers transitioned from being passive readers of chaos to structured operational directors. The platform's overall churn rate dropped significantly within its first quarter of live deployment.",
-  reflection:
-    "Working directly on dispatch floors taught me that enterprise UX cannot survive on isolated aesthetic assumptions. High-density dashboards require deep mechanical empathy for the stress environments operators live in daily. By designing alongside rather than just for the operators, we crafted a system of real, impactful utility.",
-};
+// `lendhub-property-loans` (Figma node 46:1320), `lendhub-1` (Figma node
+// 74:2149) and `aplo-education-research` (Figma node 101:2448) are fully
+// written real case studies with real screenshots — use them as the
+// reference for how to fill any future ones in.
 
 /** Figma node 46:1320 ("case-study-Lendhub") — real project, real copy, real screenshots. */
 const lendhubPropertyLoansCaseStudy: CaseStudy = {
@@ -316,6 +255,81 @@ const lendhubDesignSystemCaseStudy: CaseStudy = {
     "In building up a design system for all relevant use cases I brought up the design maturity and capability of the business. These systems allow quality design to be significantly more accessible to everyone, it allowed marketing staff who had minimal design experience to utilise the assets I created to deliver consistent, quality outputs, further building brand consistency.",
 };
 
+/** Figma node 101:2448 ("case-study-Education") — real project, real copy, real screenshots. */
+const aploEducationCaseStudy: CaseStudy = {
+  client: "Department for Education",
+  timeline: "4 Months (2023)",
+  myRole: "UX design consultant",
+  tags: ["Usability testing", "Research", "Prototyping"],
+  heroImageSrc: eduCover,
+  heroImageCaption: "EDU SA — Department for Education, South Australia",
+  problemIntro:
+    "The Department for Education delivers state-funded education for the state of South Australia. The department has to cater for every student in their midst, from pre-school to senior school, and in this, students often fall through the cracks. In this specific case, this project came about because many children who require extra support to access education fall behind, because the process teachers go through to provide evidence to justify support takes too long. The average form will take about 10 hours to complete, inevitably leaving students without the support they need to access the same education as everyone else.",
+  howMightWe:
+    "“How might we create a prototype that will allow teaching staff to supply evidence or support needed in a way that gives students agency over their own learning.”",
+  painPoints: [
+    {
+      title: "Teachers do not have the time to fill out the existing form",
+      body: "The existing form to show evidence that a student needs support takes around 10 hours. Teachers do not have the tools to show evidence needed, nor the time to fill out information if they had it.",
+    },
+    {
+      title: "Students have no agency over their own learning",
+      body: "Students have no connection to their learning and the department. This leads to them being less likely to provide schools with the information needed to get the support they need too.",
+    },
+  ],
+  processSteps: [
+    {
+      title: "Early prototype & planning",
+      body: "The project team had already been out to schools, and ran discovery workshops with teachers & executive staff, as a result we started off with a really basic prototype that ran off ipads. This was entirely black and white, it was intentionally unfinished so that users only focussed on the basics. This came alongside planning usability tests for all user groups, those being; students (of all ages), parents, teachers, teaching assistants. They were designed in a way that met our usability testing goals as well as to fill gaps missed in prior research.",
+    },
+    {
+      title: "Usability testing & iteration",
+      body: "With everything being in place a colleague and I went around to over 20 different schools around the state. Each time I would run usability testing, gather insights in it's respective category and pass the feedback onto the UI designer to update the prototype. The style of prototype varied between users, for example the prototype for the teaching staff included a whole different set of screens and subsequent questions.",
+    },
+    {
+      title: "Client delivery",
+      body: "After 3 months of testing, updating, testing and more updating the team and I packaged this all up into an 'insights report' to the executive staff. Linking all of the prototype features and findings to their 4 areas of impact, being: Equity & excellence, learner agency, effective learners, and wellbeing. Along with the prototype I put together a 'service-mapping' piece to better show the value of the digital product to that audience.",
+    },
+  ],
+  processImageSrc: eduProcessOverview,
+  processImageCaption:
+    "The prototype ended up including specific views and levels of information for different users, students, teachers and parents all had very different needs from the system, hence multiple versions of it being prototyped and designed.",
+  processShowcase: [
+    {
+      eyebrow: "Design",
+      title: "Starting basic to garner the feedback we needed",
+      body: "Although this sketch is a crude example, starting out I genuinely drew this and others like it to communicate with students, parents and teachers. Using informal sketches like this helped to communicate with users in a way that they understood. It furthermore helped to gain trust from teachers, as they were generally jaded by the department for education, by showing that we were listening to them.",
+      imageCaption: "An early hand-drawn sketch of the parent view, used to talk through the concept with families and teachers",
+      imageSrc: eduSketch,
+    },
+    {
+      eyebrow: "Design",
+      title: "Emoji’s to communicate feelings",
+      body: "An intriguing and maybe obvious learning from this project was how well communicating with emoji's and imagery worked for children. Many of the children I ran usability testing with were not able to communicate easily, but the moment we altered the student prototype to involve the emoji's for 'how are you feeling?', it put a smile on the students' faces because they could understand it and felt heard too.",
+      imageCaption: "The student dashboard — a friendly check-in with emoji for “How are you feeling?”",
+      imageSrc: eduStudentDashboard,
+    },
+    {
+      eyebrow: "Output",
+      title: "Different outputs for different stakeholders",
+      body: "We knew that when we had meetings with executive staff, they could all too easily get caught up in the details of the prototype. Many of them were not teachers themselves and were too removed from the day-to-day stresses of teachers. In order to get their feedback we needed to create a version of the prototypes that spoke to overarching processes, so I created this service-design map to show how different users interacted.",
+      imageCaption: "The service-design map showing how support requests flow between Support360 and the Personalised Learning Plan",
+      imageSrc: eduServiceMap,
+    },
+  ],
+  outcomeImageSrc: eduOutcomes,
+  outcomeImageCaption:
+    "Mid-fidelity teacher screens from the final prototype — the student plan, profile and add-action views",
+  metrics: [
+    { value: "150+", label: "over 150 stakeholders collaborated with, increasing engagement" },
+    { value: "Funding secured", label: "After 3 previously failed attempts" },
+  ],
+  outcomeClosing:
+    "After the 4 months of driving around the state of South Australia and engaging with over 150 stakeholders via usability testing, the subsequent insights report and prototype went on to be presented to the executive team. They reviewed the report and chose to support the product being created, so children in need can get access to the support they need to learn. Since I left Aplo, the product has gone into full production and is being used today.",
+  reflection:
+    "If I was to do this again, I would have asked the project team more details at the start as to how much and what research they had done. We found ourselves in a tricky situation early on where the research that was done was not to a high enough level, and as a result we had to work some questions into our usability testing. The biggest learning from this one was the importance of putting the user at the centre of the product, and how great the results can be if that is done. This is truly one of the pieces of work I am most proud of.",
+};
+
 export const projects: Project[] = [
   {
     id: "lendhub-property-loans",
@@ -341,14 +355,13 @@ export const projects: Project[] = [
   },
   {
     id: "aplo-education-research",
-    role: "Aplo user-experience consultant",
-    title: "Working with schools to build a solution together",
-    chipLabel: ["Research", "User testing"],
-    chipCompany: "LH",
+    role: "User-experience consultant - Aplo",
+    title: "Working with schools to build a solution & deliver funding",
+    chipLabel: ["Research", "Usability testing"],
+    chipCompany: "Aplo",
     description:
-      "Large-scale user-research and testing project with the department for education in order to secure funding for production and state-wide rollout",
-    image: educationComingSoon,
-    comingSoon: true,
-    caseStudy: sampleCaseStudy,
+      "Carrying out usability testing and prototyping around the state to create a prototype worthy of securing large-scale funding.",
+    image: eduCover,
+    caseStudy: aploEducationCaseStudy,
   },
 ];

@@ -290,7 +290,7 @@ Full homepage layout pulled from Figma (`node-id 27:919`). Outer frame: `2px sol
 | Company | Background | Border + Text |
 |---|---|---|
 | **LH** (Lendhub) | `#EADEFF` | `#7E3CFA` (purple) |
-| **Aplo** | `#E1E1E1` | `#1C1C1E` (charcoal/black) |
+| **Aplo** | `#A7E8E2` | `#339A99` (teal — matches the EDU SA brand on the Education case study) |
 | **Freelance** | `#F8E3C9` | `#E5850F` (orange) |
 
 ```tsx
@@ -298,7 +298,7 @@ type ChipsProps = { company?: "Aplo" | "LH" | "Freelance"; label: string };
 
 const chipStyles = {
   LH:        { bg: "#eadeff", border: "#7e3cfa", text: "#7e3cfa" },
-  Aplo:      { bg: "#e1e1e1", border: "#1c1c1e", text: "#1c1c1e" },
+  Aplo:      { bg: "#a7e8e2", border: "#339a99", text: "#339a99" },
   Freelance: { bg: "#f8e3c9", border: "#e5850f", text: "#e5850f" },
 };
 
