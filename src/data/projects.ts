@@ -1,5 +1,9 @@
 import educationComingSoon from "../assets/aplo/education-coming-soon.png";
-import comingSoonImage from "../assets/lendhub/coming-soon.png";
+import dsComponents from "../assets/lendhub-ai/components.png";
+import dsDesignMd from "../assets/lendhub-ai/designmd.png";
+import dsProcessOverview from "../assets/lendhub-ai/how-i-approached-it.png";
+import dsOutcome from "../assets/lendhub-ai/outcome.png";
+import dsVariables from "../assets/lendhub-ai/variables.png";
 import heroImage from "../assets/lendhub/hero-image.png";
 import outcomeComposite from "../assets/lendhub/outcome-composite.png";
 import processApplicationForm from "../assets/lendhub/process-application-form.png";
@@ -88,13 +92,11 @@ export interface Project {
 // design_1.md §9.3): LH = purple, Aplo = charcoal, Freelance = orange.
 //
 // `caseStudy` feeds the /work/:id template page (Figma node 32:142 / 46:1182).
-// The two "coming soon" entries below (lendhub-1, aplo-education-research)
-// still share the same sample copy from the Figma file (a "MetroFlow Systems"
-// case study) — swap in your own write-up per project. Their View buttons are
-// disabled (`comingSoon: true`) so the sample pages aren't linked anywhere.
-// `lendhub-property-loans` (top of the list) is a fully written real case
-// study (Figma node 46:1320) — use it as the reference for how to fill the
-// others in, including real screenshots via *ImageSrc fields.
+// `lendhub-property-loans` (Figma node 46:1320) and `lendhub-1` (Figma node
+// 74:2149) are fully written real case studies with real screenshots — use
+// them as the reference for how to fill the others in. `aplo-education-research`
+// still shares the sample "MetroFlow Systems" copy below and has its View
+// button disabled (`comingSoon: true`) so the sample page isn't linked.
 const sampleCaseStudy: CaseStudy = {
   client: "MetroFlow Systems",
   timeline: "6 Months (2025)",
@@ -238,6 +240,81 @@ const lendhubPropertyLoansCaseStudy: CaseStudy = {
     "In reflection, what would have helped the product suite get going from the very start would have been to hold more broker workshops and spend more time problem-solving with the finance team, rather than jumping straight into solutions. Otherwise, I think we truly did the best with what we had available to us at the time.",
 };
 
+/** Figma node 74:2149 ("case-study-Lendhubai") — real project, real copy, real screenshots. */
+const lendhubDesignSystemCaseStudy: CaseStudy = {
+  client: "Lendhub",
+  timeline: "1 Month (2026)",
+  myRole: "UX/UI manager",
+  tags: ["Design systems", "AI strategy"],
+  heroImageSrc: heroImage,
+  heroImageCaption: "Lendhub brand mark",
+  problemIntro:
+    "Lendhub had no formal design system when I joined. That meant rework on every wireframe and drift between products as they were built as well as poor developer handover. A large part of my role involved rapid prototype iteration but without a system, each one diverged a little further from the last, and usability suffered as a result. A large part of the engineer's role within Lendhub was to create web-apps for internal use as well as create test projects to explore ideas. The products were not only difficult to use, but as more and more was built, the drift between the early designs and later designs became large.",
+  howMightWe:
+    "“How might we create a design system from the ground up that evolves with the business’ needs”",
+  painPoints: [
+    {
+      title: "No formal design system",
+      body: "Every new wireframe meant rebuilding decisions from scratch, and inconsistencies compounded as the product grew. Without a system, the business couldn't prototype or scale design work quickly.",
+    },
+    {
+      title: "Large drift during ai use",
+      body: "By nature, general AI 'vibe-coding' is inconsistent, resulting in poor user experiences and excess time spent on re-work. The guard railing system I built directly reduced this.",
+    },
+  ],
+  processSteps: [
+    {
+      title: "Figma design system",
+      body: "This was the first part of the puzzle. Upon arriving at Lendhub, there was only scattered components from various agency and internal projects. I first reviewed all of the components across multiple files, collated these, and built out a list of what needed to go into the design system, styles, components and tied it all back to variables. From there I fixed what was there, built out new styles, components, so on and so forth.",
+    },
+    {
+      title: "Ai design package",
+      body: "Once the component library was sorted, the next part of the puzzle was adapting it to AI use and the need to create guardrails for the systems to work between became apparent. This process involved a lot of time on different articles, internet forums and such, trying to find consistency in the best way forward. I landed on referencing companies such as Wise and Vercel to see how they build up their design systems, and from that built out a design.md file, the actual rules AI tools reference instead of guessing from figma each time.",
+    },
+    {
+      title: "Ongoing maintenance",
+      body: "Design systems are living, breathing parts of any product team's toolset. With the Figma library and the AI system both in place, the ongoing piece was keeping them both up to date, and evolving with new components that were inevitably added. Maintaining the design.md file was a learning curve at first and required a close eye, since keeping a human-facing system and a machine-facing one lined up isn't something most workflows account for. It settled into a routine, update the Figma system, then update the file that governs how AI reads it.",
+    },
+  ],
+  processImageSrc: dsProcessOverview,
+  processImageCaption:
+    "The basis of a robust design system is a systematic component library that is broken up into bite-sized sections, this was broken up utilising the atomic design system methodology of: atoms > molecules > organisms > templates.",
+  processShowcase: [
+    {
+      eyebrow: "Output",
+      title: "Bringing it all back to variables",
+      body: "One of the key changes that brought the design system into a more robust state was introducing variables and linking those back to components, this is crucial to the maintenance of design systems and ensures the system can grow without too many cracks. An analogy to variables is this: variables function like a restaurant menu's Chef's Daily Special: instead of hardcoding prices across every single combo deal, you link them to one central label so that updating the dish's price once instantly recalculates every menu item down the line. For a sustainable design system this is absolutely essential and it also helps with AI understanding later down the line.",
+      imageCaption: "The variables panel — button tokens linked back to core colour styles",
+      imageSrc: dsVariables,
+    },
+    {
+      eyebrow: "Design",
+      title: "Accounting for every possibility",
+      body: "A good component library accounts for as many (regular) use cases as possible, so when putting components together I'd always ensure components such as buttons included icons on both sides, and there was error states for all components that needed it.",
+      imageCaption: "Button component variants covering icon placement, size and state",
+      imageSrc: dsComponents,
+    },
+    {
+      eyebrow: "AI guardrails",
+      title: "The nuance of a DESIGN.md",
+      body: "When building out the markdown file to direct an agent, the basics such as what text styles to use, and what colours to use were simple. As I found out the product description and the Do's and Don'ts part of the markdown was where the real difference was sat and this part really needed human finesse. This involved a lot of scanning through the existing wireframes and web-apps and finding out where it would differ for the worse and writing a list of don'ts against those. For example I found although I'd told the agent otherwise, it would consistently use the brand's primary purple as a background colour for menu's and such although it didn't make sense, so I had to create a rule banning this action.",
+      imageCaption: "The DESIGN.md file's Do's and Don'ts section",
+      imageSrc: dsDesignMd,
+    },
+  ],
+  outcomeImageSrc: dsOutcome,
+  outcomeImageCaption:
+    "The design system as a single source of truth — component library, token architecture and the DESIGN.md that governs AI use",
+  metrics: [
+    { value: "Source of truth", label: "For platform suite, marketing materials and internal tools" },
+    { value: "Less rework", label: "Reduced re-working of designs post vibe-coding" },
+  ],
+  outcomeClosing:
+    "In building up a design system for all relevant use cases I brought up the design maturity and capability of the business. These systems allow quality design to be significantly more accessible to everyone, it allowed marketing staff who had minimal design experience to utilise the assets I created to deliver consistent, quality outputs, further building brand consistency. It also allowed the engineering team to have a single point of reference for components, meaning that engineering outputs remained consistent, and made their workflow much faster as well.",
+  reflection:
+    "In building up a design system for all relevant use cases I brought up the design maturity and capability of the business. These systems allow quality design to be significantly more accessible to everyone, it allowed marketing staff who had minimal design experience to utilise the assets I created to deliver consistent, quality outputs, further building brand consistency.",
+};
+
 export const projects: Project[] = [
   {
     id: "lendhub-property-loans",
@@ -253,14 +330,13 @@ export const projects: Project[] = [
   {
     id: "lendhub-1",
     role: "Lendhub UX/UI Manager",
-    title: "Building a design system and translating it for consistent ai-use",
+    title: "Building a design system and translating it for quality ai-use",
     chipLabel: ["Design systems", "AI strategy"],
     chipCompany: "LH",
     description:
-      "A design system that evolved into a relevant claude package to ensure engineering outputs can be carried out at speed without great design drift.",
-    image: comingSoonImage,
-    comingSoon: true,
-    caseStudy: sampleCaseStudy,
+      "Creating, maintaining and then translating it into a DESIGN.md file to enable engineers and reduce re-work.",
+    image: heroImage,
+    caseStudy: lendhubDesignSystemCaseStudy,
   },
   {
     id: "aplo-education-research",
