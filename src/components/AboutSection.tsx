@@ -9,6 +9,7 @@ import clientEduSa from "../assets/clients/edu-sa.png";
 import clientGdayGroup from "../assets/clients/gday-group.png";
 import clientSapol from "../assets/clients/sapol.png";
 import PillButton from "./PillButton";
+import { useBobble } from "../hooks/useBobble";
 
 const thingsILove = [
   "Just learning new things",
@@ -48,13 +49,39 @@ const clients = [
   },
 ];
 
+function BobbleLogo({ client }: { client: (typeof clients)[number] }) {
+  const { ref, onPointerEnter } = useBobble<HTMLImageElement>();
+
+  return (
+    <a
+      href={client.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${client.name} (opens in a new tab)`}
+      onPointerEnter={onPointerEnter}
+      className="flex h-20 w-20 shrink-0 items-center justify-center transition-opacity hover:opacity-70 wide:h-[120px] wide:w-[120px]"
+    >
+      <img
+        ref={ref}
+        src={client.logo}
+        alt={client.name}
+        className={
+          client.tile
+            ? "h-full w-full rounded-xl object-cover"
+            : "max-h-full max-w-full rounded-none object-contain"
+        }
+      />
+    </a>
+  );
+}
+
 export default function AboutSection() {
   return (
     <section id="about" className="flex w-full flex-col gap-10 px-5 py-16 lg:px-30 lg:py-20">
       <p className="font-display text-xl font-bold leading-[28px] text-ink">/ About</p>
 
-      <div className="flex flex-col items-start justify-center gap-10 lg:flex-row lg:gap-[60px]">
-        <div className="flex flex-1 flex-col items-start justify-center gap-6">
+      <div className="flex w-full flex-col gap-10 row:flex-row row:items-center">
+        <div className="flex flex-1 flex-col items-start gap-6">
           <div className="flex w-full flex-col items-start gap-4">
             <div className="flex w-full flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="font-display text-[32px] font-bold leading-[48px] text-ink lg:text-[40px]">
@@ -97,7 +124,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        <div className="h-[260px] w-full shrink-0 lg:h-[389px] lg:w-[600px]">
+        <div className="h-[260px] w-full shrink-0 row:h-[389px] row:max-wide:flex-1 wide:w-[600px]">
           <img
             src={aboutImg}
             alt="Jack Stewart"
@@ -113,24 +140,7 @@ export default function AboutSection() {
         <div className="flex w-full flex-col gap-2">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8 lg:justify-between lg:gap-x-0">
             {clients.map((client) => (
-              <a
-                key={client.name}
-                href={client.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${client.name} (opens in a new tab)`}
-                className="flex h-20 w-20 shrink-0 items-center justify-center transition-opacity hover:opacity-70 wide:h-[120px] wide:w-[120px]"
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className={
-                    client.tile
-                      ? "h-full w-full rounded-xl object-cover"
-                      : "max-h-full max-w-full rounded-none object-contain"
-                  }
-                />
-              </a>
+              <BobbleLogo key={client.name} client={client} />
             ))}
           </div>
           <p className="w-full font-body text-xs italic leading-4 text-[#8e8e88]">
