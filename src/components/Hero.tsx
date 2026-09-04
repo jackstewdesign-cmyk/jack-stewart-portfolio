@@ -1,16 +1,17 @@
 import iconChevron from "../assets/icon-chevron.svg";
 import iconDownload from "../assets/icon-download.svg";
 import iconLinkedin from "../assets/icon-linkedin.svg";
+import MagnifyTitle from "./MagnifyTitle";
 import PillButton from "./PillButton";
 
 export default function Hero() {
   return (
     <section className="relative flex w-full min-h-[100svh] flex-col justify-center px-5 py-16 lg:min-h-[calc(100svh-88px)] lg:justify-center lg:px-30 lg:py-0">
       <div className="flex flex-col gap-10 lg:gap-20">
-        <h1 className="font-display text-[32px] font-bold leading-[1.1] text-ink lg:text-[40px]">
-          Hi, I’m jack, a hands-on UX designer and strategist who ensures people are at the core of tech
-          products
-        </h1>
+        <MagnifyTitle
+          text="Hi, I’m jack, a hands-on UX designer and strategist who ensures people are at the core of tech products"
+          className="font-display text-[32px] font-bold leading-[1.3] text-ink lg:text-[40px]"
+        />
 
         <hr className="w-full border-t border-ink" />
 
