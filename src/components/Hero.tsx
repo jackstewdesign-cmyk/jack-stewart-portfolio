@@ -9,10 +9,18 @@ import PillButton from "./PillButton";
 const EMAIL = "jackstewdesign@gmail.com";
 
 export default function Hero() {
-  const [copied, setCopied] = useState(false);
+  const [toast, setToast] = useState("");
+  const [toastVisible, setToastVisible] = useState(false);
   const timeoutRef = useRef<number | undefined>(undefined);
 
   useEffect(() => () => window.clearTimeout(timeoutRef.current), []);
+
+  function showToast(message: string) {
+    setToast(message);
+    setToastVisible(true);
+    window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => setToastVisible(false), 2400);
+  }
 
   async function copyEmail() {
     try {
@@ -29,9 +37,7 @@ export default function Hero() {
       document.execCommand("copy");
       document.body.removeChild(el);
     }
-    setCopied(true);
-    window.clearTimeout(timeoutRef.current);
-    timeoutRef.current = window.setTimeout(() => setCopied(false), 2400);
+    showToast("Email copied to clipboard");
   }
 
   return (
@@ -57,6 +63,7 @@ export default function Hero() {
               download
               icon={iconDownload}
               variant="accent"
+              onClick={() => showToast("CV downloaded")}
             >
               Download CV
             </PillButton>
@@ -90,18 +97,18 @@ export default function Hero() {
         <img src={iconChevron} alt="" className="h-[37.5px] w-[75px]" aria-hidden="true" />
       </a>
 
-      {/* Copy-confirmation toast — fixed to the bottom-centre of the viewport. */}
+      {/* Action-confirmation toast — fixed to the bottom-centre of the viewport. */}
       <div
         aria-live="polite"
         className="pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center px-5"
       >
         <div
           className={`rounded-full bg-charcoal px-5 py-3 font-body text-base font-medium text-canvas shadow-lg transition-all duration-300 ${
-            copied ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
+            toastVisible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0"
           }`}
           role="status"
         >
-          Email copied to clipboard
+          {toast || " "}
         </div>
       </div>
     </section>
