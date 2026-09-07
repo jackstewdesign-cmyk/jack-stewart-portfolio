@@ -9,6 +9,8 @@ interface PillButtonProps extends Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 
   iconClassName?: string;
   external?: boolean;
   className?: string;
+  /** When provided (and no `href`), the pill renders as a real `<button>`. */
+  onClick?: () => void;
   children: ReactNode;
 }
 
@@ -34,6 +36,7 @@ export default function PillButton({
   external = false,
   download,
   className = "",
+  onClick,
   children,
 }: PillButtonProps) {
   const base =
@@ -55,6 +58,14 @@ export default function PillButton({
       )}
     </>
   );
+
+  if (onClick && !href) {
+    return (
+      <button type="button" onClick={onClick} className={classes}>
+        {content}
+      </button>
+    );
+  }
 
   if (!external && !download && href?.startsWith("/")) {
     return (
