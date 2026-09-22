@@ -44,7 +44,7 @@ export default function Hero() {
     <section className="relative flex w-full min-h-[100svh] flex-col justify-center px-5 py-16 lg:min-h-[calc(100svh-88px)] lg:justify-center lg:px-30 lg:py-0">
       <div className="flex flex-col gap-10 lg:gap-20">
         <MagnifyTitle
-          text="Hi, I’m jack, a hands-on UX designer and strategist who ensures people are at the core of tech products"
+          text="Hi, I’m Jack, a hands-on UX designer and strategist who ensures people are at the core of tech products."
           className="font-display text-[32px] font-bold leading-[1.3] text-ink lg:text-[40px]"
         />
 
@@ -52,9 +52,10 @@ export default function Hero() {
 
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
           <p className="flex-1 font-display text-lg leading-[1.4] text-ink lg:max-w-[941px] lg:text-2xl">
-            UX designer with over 5 years of experience turning ambiguious problems into clear solutions
-            that connect to the business objectives. Expertise in working in enterprise, agency and
-            in-house roles. Currently based out of London.
+            Product designer with 5+ years of experience across Fintech, enterprise SaaS, and digital
+            agencies, turning ambiguous problems into clear solutions that drive the business
+            objectives. I’ve had success securing funding twice and designing an end-to-end product
+            suite. Based out of London.
           </p>
 
           <div className="flex flex-col items-start gap-5">

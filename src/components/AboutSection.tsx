@@ -13,6 +13,7 @@ import { useBobble } from "../hooks/useBobble";
 
 const thingsILove = [
   "Just learning new things",
+  "Meeting new people",
   "Listening to music",
   <>
     <strong className="font-semibold">Attempting</strong> to make music

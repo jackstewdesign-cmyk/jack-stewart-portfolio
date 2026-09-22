@@ -88,7 +88,7 @@ export default function CaseStudyPage() {
   useEffect(() => {
     if (project) document.title = `${project.title} — Jack`;
     return () => {
-      document.title = "Jack — UX Designer & Strategist";
+      document.title = "Jack — Product Designer";
     };
   }, [project]);
 
