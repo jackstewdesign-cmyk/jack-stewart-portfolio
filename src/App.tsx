@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
-import PointerFollower from "./components/PointerFollower";
 import CaseStudyPage from "./pages/CaseStudyPage";
 import HomePage from "./pages/HomePage";
 import ScrollToHash from "./ScrollToHash";
@@ -9,7 +8,6 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col items-center bg-canvas">
       <ScrollToHash />
-      <PointerFollower />
       <Nav />
       {/* Page content is capped at 1860px and centred; beyond that the extra
           width becomes side margin (canvas-coloured, matching body). The nav
