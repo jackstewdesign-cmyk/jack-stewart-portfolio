@@ -60,7 +60,7 @@ export default function Hero() {
 
           <div className="flex flex-col items-start gap-5">
             <PillButton
-              href="/Jackstewart_resume_Aug26_.pdf"
+              href="/Jackstewart_GENCV.pdf"
               download
               icon={iconDownload}
               variant="accent"
@@ -92,7 +92,7 @@ export default function Hero() {
           bottom-centre of the hero from `lg` up. */}
       <a
         href="#work"
-        className="mt-6 flex flex-col items-center gap-3 self-center opacity-80 transition-opacity hover:opacity-100 lg:absolute lg:bottom-8 lg:left-1/2 lg:mt-0 lg:-translate-x-1/2"
+        className="mt-6 flex flex-col items-center gap-3 self-center opacity-80 transition-opacity hover:opacity-50 lg:absolute lg:bottom-8 lg:left-1/2 lg:mt-0 lg:-translate-x-1/2"
       >
         <span className="font-body text-base leading-6 text-[#2c2c2e]">See my work</span>
         <img src={iconChevron} alt="" className="h-[37.5px] w-[75px]" aria-hidden="true" />

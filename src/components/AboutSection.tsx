@@ -12,14 +12,19 @@ import PillButton from "./PillButton";
 import { useBobble } from "../hooks/useBobble";
 
 const thingsILove = [
-  "Just learning new things",
-  "Meeting new people",
-  "Listening to music",
-  <>
-    <strong className="font-semibold">Attempting</strong> to make music
-  </>,
-  "Running (far too much)",
-  "Seeing the world",
+  {
+    heading: "In the office I love",
+    items: [
+      "Learning something new",
+      "Sketching ideas out",
+      "Working across varying tasks",
+      "A morning coffee run",
+    ],
+  },
+  {
+    heading: "Outside of the office I love",
+    items: ["Making music", "Running", "Going to a jazz gig", "Travelling"],
+  },
 ];
 
 // `tile` logos are supplied as full-bleed coloured squares (rounded 12px,
@@ -89,7 +94,7 @@ export default function AboutSection() {
                 About me
               </h2>
               <PillButton
-                href="/Jackstewart_resume_Aug26_.pdf"
+                href="/Jackstewart_GENCV.pdf"
                 download
                 icon={iconDownload}
                 variant="accent"
@@ -113,15 +118,21 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-start gap-4 text-ink">
-            <p className="w-full font-display text-xl font-bold leading-[28px]">Things I love</p>
-            <div className="w-full font-body text-base">
-              {thingsILove.map((item, i) => (
-                <p key={i} className="mb-2 leading-6 last:mb-0">
-                  {item}
+          <div className="grid w-full gap-8 text-ink sm:grid-cols-2">
+            {thingsILove.map((group) => (
+              <div key={group.heading} className="flex flex-col items-start gap-4">
+                <p className="w-full font-display text-xl font-bold leading-[28px]">
+                  {group.heading}
                 </p>
-              ))}
-            </div>
+                <div className="w-full font-body text-base">
+                  {group.items.map((item) => (
+                    <p key={item} className="mb-2 leading-6 last:mb-0">
+                      {item}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
